@@ -1,0 +1,12 @@
+@import "src/app/core/sass/index";
+
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.drawer {
+  display: none;
+}

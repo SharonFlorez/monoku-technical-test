@@ -1,0 +1,28 @@
+@import "src/app/core/sass/index";
+
+.mat-drawer-content {
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $gray-dark;
+}
+
+mat-drawer .mat-drawer-inner-container {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  overflow: hidden;
+}
+
+.mat-mdc-radio-button .mdc-radio {
+  position: absolute;
+  z-index: -1;
+}
+
+@media (min-width: 768px) {
+  .mat-drawer-content {
+    justify-content: flex-start;
+  }
+}

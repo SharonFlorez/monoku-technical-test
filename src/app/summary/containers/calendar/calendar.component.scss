@@ -1,0 +1,24 @@
+@import "src/app/core/sass/index";
+
+.calendar-container {
+  padding: 4rem 2rem;
+
+  .title {
+    font-weight: bold;
+    color: $white;
+    font-size: 2rem;
+  }
+
+  .calendar-content {
+    background-color: $blue-light;
+    height: 36rem;
+    font-size: 1rem;
+    color: white;
+    padding: 1rem;
+    border-radius: 2rem;
+
+    .emoji {
+      font-size: 1.4rem;
+    }
+  }
+}
