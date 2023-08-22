@@ -11,31 +11,30 @@ import {
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  public isMobile = true;
-  public isDrawerOpen = false;
+  public isDesktop = true;
   public active = '';
 
   constructor(private _router: Router) {
     this._router.events.pipe().subscribe((event: NavigationEvent) => {
       if (event instanceof NavigationEnd) {
-        this._setTitle(event.url);
+        this._setSelectedOption(event.url);
       }
     });
   }
 
   @HostListener('window:resize', [])
-  updateIsMobile() {
+  updateisDesktop() {
     const width = document.documentElement.clientWidth || window.innerWidth;
-    const breakpoint = 768;
+    const breakpoint = 1024;
 
-    this.isMobile = width < breakpoint;
+    this.isDesktop = width >= breakpoint;
   }
 
   ngOnInit(): void {
-    this.updateIsMobile();
+    this.updateisDesktop();
   }
 
-  private _setTitle(currentPath: string): void {
+  private _setSelectedOption(currentPath: string): void {
     if (!currentPath.includes('resumen')) {
       this.active = 'inicio';
     } else if (currentPath.includes('resumen')) {

@@ -1,0 +1,30 @@
+@import "src/app/core/sass/index";
+
+.trend-graph-container {
+  padding: 0 2rem 4rem;
+
+  .trend-graph-title {
+    font-weight: bold;
+    color: $white;
+    font-size: 2rem;
+  }
+
+  .chart-container {
+    background: $white;
+    border-radius: 1rem;
+  }
+}
+
+@include tablet {
+  .trend-graph-container {
+    padding: 0;
+
+    .trend-graph-title {
+      font-size: 3rem;
+    }
+
+    .chart-container {
+      height: 40rem;
+    }
+  }
+}

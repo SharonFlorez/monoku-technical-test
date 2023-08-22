@@ -13,12 +13,29 @@
     background-color: $blue-light;
     height: 36rem;
     font-size: 1rem;
-    color: white;
+    color: $white;
     padding: 1rem;
     border-radius: 2rem;
 
     .emoji {
       font-size: 1.4rem;
+    }
+  }
+}
+
+@include tablet {
+  .calendar-container {
+    .title {
+      font-size: 3rem;
+    }
+
+    .calendar-content {
+      height: 40rem;
+      font-size: 1.4rem;
+
+      .emoji {
+        font-size: 1.6rem;
+      }
     }
   }
 }

@@ -1,1 +1,15 @@
 @import "src/app/core/sass/index";
+
+@include desktop {
+  .summary-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 4rem;
+
+    app-calendar,
+    app-trend-graph {
+      flex: 0 0 45%;
+    }
+  }
+}

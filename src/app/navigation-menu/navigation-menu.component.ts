@@ -7,7 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class NavigationMenuComponent {
   @Input() public active = '';
-  @Input() public isDrawerOpen = false;
-
-  constructor() {}
 }

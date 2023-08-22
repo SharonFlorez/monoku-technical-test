@@ -19,21 +19,3 @@ body {
 * {
   margin: 0;
 }
-
-.desktop-only {
-  display: none;
-}
-
-.d-flex {
-  display: flex;
-}
-
-@include tablet {
-  .desktop-only {
-    display: block;
-  }
-
-  .mobile-only {
-    display: none;
-  }
-}

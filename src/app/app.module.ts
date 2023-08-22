@@ -13,6 +13,7 @@ import { SummaryModule } from './summary/summary.module';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AppRouterComponent } from './app-router.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AppRouterComponent } from './app-router.component';
     FormsModule,
     HttpClientModule,
     SummaryModule,
+    NgChartsModule,
   ],
   providers: [OpenaiService],
   bootstrap: [AppComponent],

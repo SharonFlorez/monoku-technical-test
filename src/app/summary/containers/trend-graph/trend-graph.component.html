@@ -1,1 +1,14 @@
-<p>TrendGraphComponent</p>
+<div class="trend-graph-container">
+  <h1 class="trend-graph-title">Tendencias</h1>
+  <div class="chart-container">
+    <canvas
+      baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [type]="'bar'"
+    >
+    </canvas>
+  </div>
+</div>

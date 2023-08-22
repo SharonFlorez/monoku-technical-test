@@ -10,3 +10,10 @@
 .drawer {
   display: none;
 }
+
+@include desktop {
+  .drawer {
+    display: block;
+    width: 11rem;
+  }
+}

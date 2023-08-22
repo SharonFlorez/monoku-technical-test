@@ -58,6 +58,7 @@
       padding: 1rem;
       min-width: 90%;
       font-size: 1.2rem;
+      color: $white;
 
       &::placeholder {
         color: $white;
@@ -82,5 +83,96 @@
 
   .selected-emoji {
     font-size: 3.6rem;
+  }
+}
+
+@include tablet {
+  .mood-selector-container {
+    .title {
+      font-size: 3rem;
+    }
+
+    .mat-card {
+      width: 40rem;
+
+      .radio-button .label-container {
+        .emoji {
+          font-size: 3.5rem;
+        }
+
+        .text-mood {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          .emoji {
+            font-size: 4.5rem;
+          }
+
+          .text-mood {
+            font-size: 1.6rem;
+          }
+        }
+      }
+
+      .text-tarea {
+        font-size: 1.4rem;
+      }
+
+      .button {
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .mood-selector-container {
+    gap: 8rem;
+
+    .title {
+      font-size: 4rem;
+    }
+
+    .mat-card {
+      width: 50rem;
+
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+      }
+
+      .radio-button .label-container {
+        .emoji {
+          font-size: 4rem;
+        }
+
+        .text-mood {
+          margin-top: 2rem;
+          font-size: 1.4em;
+        }
+
+        &:hover {
+          .emoji {
+            font-size: 5rem;
+          }
+
+          .text-mood {
+            font-size: 1.8rem;
+          }
+        }
+      }
+
+      .text-tarea {
+        font-size: 1.6rem;
+      }
+
+      .button {
+        padding: 2rem 3rem;
+        font-size: 2rem;
+      }
+    }
   }
 }

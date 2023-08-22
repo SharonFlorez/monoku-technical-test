@@ -1,29 +1,18 @@
 <div class="global-wrapper">
   <mat-drawer-container class="drawer-container">
-    <mat-drawer
-      class="drawer"
-      disableClose="true"
-      mode="side"
-      [opened]="true"
-      [style.width.rem]="isDrawerOpen ? 26 : 11"
-    >
-      <app-navigation-menu
-        class="flex-column"
-        [active]="active"
-        [class.closed-aligned]="!isDrawerOpen"
-        [isDrawerOpen]="isDrawerOpen"
-      >
+    <mat-drawer class="drawer" mode="side" [opened]="true">
+      <app-navigation-menu class="flex-column" [active]="active">
       </app-navigation-menu>
     </mat-drawer>
 
     <mat-drawer-content
-      style="display: flex; height: 100vh"
-      [style.marginLeft.rem]="isMobile ? 0 : isDrawerOpen ? 26 : 11"
+      style="display: flex; height: 100vh; justify-content: space-between"
+      [style.marginLeft.rem]="!isDesktop ? 0 : 11"
     >
       <ng-content class="content-container"></ng-content>
 
       <app-navigation-menu
-        *ngIf="isMobile"
+        *ngIf="!isDesktop"
         class="container"
         [active]="active"
       ></app-navigation-menu>
