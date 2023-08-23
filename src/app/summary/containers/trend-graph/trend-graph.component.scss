@@ -3,15 +3,34 @@
 .trend-graph-container {
   padding: 0 2rem 4rem;
 
-  .trend-graph-title {
-    font-weight: bold;
+  .title-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     color: $white;
-    font-size: 2rem;
+    margin-bottom: 2rem;
+
+    .trend-graph-title {
+      margin: 0;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .icon:hover {
+      color: $blue-light;
+    }
   }
 
   .chart-container {
     background: $white;
     border-radius: 1rem;
+  }
+
+  .info {
+    margin-top: 0.5rem;
+    color: $white;
+    font-size: 1rem;
+    font-style: italic;
   }
 }
 
@@ -19,7 +38,7 @@
   .trend-graph-container {
     padding: 0 2rem;
 
-    .trend-graph-title {
+    .title-container .trend-graph-title {
       font-size: 3rem;
     }
 

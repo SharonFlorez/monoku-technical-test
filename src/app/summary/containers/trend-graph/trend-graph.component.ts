@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-trend-graph',
@@ -24,5 +25,13 @@ export class TrendGraphComponent implements OnInit {
       ],
       chartLabels: ['😄', '😊', '😐', '😞', '😢'],
     };
+  }
+
+  public getGraphInterpretation(): void{
+    const maxNumber = Math.max(...this.moodCounts);
+    const index = this.moodCounts.indexOf(maxNumber);
+    const recurringMood = this.barChartConfig.chartLabels[index];
+
+    Swal.fire(`Hasta el momento, tu estado de ánimo más recurrente ha sido ${recurringMood}`)
   }
 }

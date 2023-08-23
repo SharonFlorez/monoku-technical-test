@@ -1,5 +1,11 @@
 <div class="trend-graph-container">
-  <h1 class="trend-graph-title">Tendencias</h1>
+  <div class="title-container">
+    <h1 class="trend-graph-title">Tendencias</h1>
+    <span class="material-icons-outlined icon pointer" (click)="getGraphInterpretation()">
+      analytics
+    </span>
+  </div>
+
   <div class="chart-container">
     <canvas
       baseChart
@@ -11,4 +17,9 @@
     >
     </canvas>
   </div>
+
+  <p class="info">
+    * Si deseas conocer el resumen textual de tus tendencias, haz clic en el ícono que se encuentra
+    al lado del título.
+  </p>
 </div>
