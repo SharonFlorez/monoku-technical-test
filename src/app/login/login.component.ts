@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   public onSubmit() {
     this._userService
       .loginWithGoogle()
-      .then((response) => {
+      .then(() => {
         this._router.navigate(['/inicio']);
       })
       .catch((error) => console.log(error));

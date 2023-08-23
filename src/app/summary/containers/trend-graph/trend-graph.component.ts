@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ChartConfiguration } from 'chart.js';
-import { MoodEntry } from 'src/app/core/model/mood-entry';
-import { MoodEntryService } from 'src/services/mood-entry.service';
 
 @Component({
   selector: 'app-trend-graph',
@@ -28,38 +26,7 @@ export class TrendGraphComponent implements OnInit {
     responsive: true,
   };
 
-  // moodEntries: MoodEntry[] = [];
-  // lineChartData: ChartDataset[] = [];
-  // lineChartLabels: string[] = [];
+  constructor() {}
 
-  // lineChartOptions: ChartOptions = {
-  //   responsive: true,
-  //   scales: {
-  //     x: {
-  //       type: 'time',
-  //       time: {
-  //         unit: 'day',
-  //       },
-  //     },
-  //   },
-  // };
-
-  // lineChartType: ChartType = 'line';
-  // lineChartLegend = true;
-
-  // constructor(private moodEntryService: MoodEntryService) {}
-
-  ngOnInit(): void {
-    // Fetch mood entries and update the chart data
-    // this.moodEntryService.getMoodEntries().subscribe(entries => {
-    //   this.moodEntries = entries;
-    //   this.lineChartData = [
-    //     {
-    //       data: entries.map(entry => ({ x: entry.date, y: entry.moodValue })),
-    //       label: 'Mood Trend'
-    //     }
-    //   ];
-    //   this.lineChartLabels = entries.map(entry => entry.date.toISOString());
-    // });
-  }
+  ngOnInit(): void {}
 }

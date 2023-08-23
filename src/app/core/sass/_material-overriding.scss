@@ -19,6 +19,11 @@ mat-drawer .mat-drawer-inner-container {
   z-index: -1;
 }
 
+.fc-h-event {
+  background-color: transparent;
+  border: none;
+}
+
 @include tablet {
   .mat-drawer-content {
     justify-content: flex-start;

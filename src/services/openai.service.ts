@@ -22,7 +22,8 @@ export class OpenaiService {
     });
 
     return (
-      completion?.choices[0].message.content ?? 'No hay análisis por el momento'
+      completion?.choices[0].message.content ??
+      'No se dispone de un análisis de tus emociones en este momento.'
     );
   }
 }

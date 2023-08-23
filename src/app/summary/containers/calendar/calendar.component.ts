@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
-import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { MoodEntry } from 'src/app/core/model/mood-entry';
-import { MoodEntryService } from 'src/services/mood-entry.service';
+import { CalendarOptions } from '@fullcalendar/core';
+
+import { MoodRegisterService } from 'src/services/mood-register.service';
+import { MoodRegister } from 'src/app/core/interfaces/mood-register.interface';
+import { timestamp } from 'rxjs';
+import { GetMoodHelper } from 'src/app/core/helpers/mood-emoji.helper';
 
 @Component({
   selector: 'app-calendar',
@@ -11,27 +13,30 @@ import { MoodEntryService } from 'src/services/mood-entry.service';
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent implements OnInit {
-  public moodEntries: MoodEntry[] = [];
+  public moodEntries: MoodRegister[] = [];
   public calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin],
-    events: [
-      {
-        title: '😐',
-        date: new Date(),
-      },
-    ],
+    events: [],
   };
 
-  constructor(private moodEntryService: MoodEntryService) {}
+  constructor(private _moodRegister: MoodRegisterService) {}
 
   ngOnInit(): void {
-    // this.moodEntryService.getMoodEntries().subscribe(entries => {
-    //   this.moodEntries = entries;
-    //   this.calendarOptions.events = entries.map(entry => ({
-    //     title: entry.mood,
-    //     date: entry.date
-    //   }));
-    // });
+    this._moodRegister.getMoods().subscribe((entries) => {
+      this.moodEntries = entries;
+      this.calendarOptions.events = this.moodEntries.map((entry) => {
+        const timestamp = entry.date;
+        const date = new Date(
+          timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000
+        );
+        const formattedDate = date.toISOString().split('T')[0];
+
+        return {
+          title: GetMoodHelper.getEmoji(entry.mood),
+          date: formattedDate,
+        };
+      });
+    });
   }
 }
