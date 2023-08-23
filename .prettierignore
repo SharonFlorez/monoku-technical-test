@@ -1,0 +1,4 @@
+*.ts
+*.scss
+src/index.html
+src/app/app.component.html

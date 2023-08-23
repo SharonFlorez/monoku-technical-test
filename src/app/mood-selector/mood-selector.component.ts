@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
 import { OpenaiService } from 'src/services/openai.service';
 import { MOODS } from '../core/constants/mood-constant';
 import { MoodRegisterService } from 'src/services/mood-register.service';
 import { MoodRegister } from '../core/interfaces/mood-register.interface';
-import { Router } from '@angular/router';
 import { GetMoodHelper } from '../core/helpers/mood-emoji.helper';
 
 @Component({
