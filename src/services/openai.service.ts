@@ -16,8 +16,6 @@ export class OpenaiService {
   async analyzeSentiment(sentiment: string): Promise<string> {
     const prompt = `Analyze the sentiment of the following journal entry: "${sentiment}"`;
 
-    console.log(openAi);
-
     const completion = await openAi.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: prompt }],

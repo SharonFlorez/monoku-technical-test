@@ -2,30 +2,32 @@
   <h1 class="title">¿Cómo te sientes hoy?</h1>
   <mat-card class="mat-card">
     <mat-card-content class="card-content">
-      <mat-radio-group [(ngModel)]="selectedMood">
-        <mat-radio-button
-          *ngFor="let mood of moods"
-          [value]="mood.value"
-          class="radio-button"
-        >
-          <section class="label-container pointer">
-            <p class="emoji">{{ mood.emoji }}</p>
-            <p class="text-mood">{{ mood.label }}</p>
-          </section>
-        </mat-radio-button>
-      </mat-radio-group>
-      <textarea
-        matInput
-        placeholder="Cuentame sobre tu día"
-        class="text-tarea"
-        [(ngModel)]="journalEntry"
-      ></textarea>
-      <button
-        mat-raised-button
-        class="button pointer"
-        (click)="submitForSentimentAnalysis(selectedMood, journalEntry)"
-      >
-        Enviar
+      <form [formGroup]="moodForm">
+        <mat-radio-group formControlName="mood" required>
+          <mat-radio-button
+            *ngFor="let mood of moods"
+            class="radio-button"
+            [value]="mood.value"
+            (change)="getSelectedMood($event.value)"
+          >
+            <section
+              class="label-container pointer"
+              [class.selected-mood]="mood.value === selectedMood"
+            >
+              <p class="emoji">{{ mood.emoji }}</p>
+              <p class="text-mood">{{ mood.label }}</p>
+            </section>
+          </mat-radio-button>
+        </mat-radio-group>
+        <textarea
+          matInput
+          placeholder="Cuentame sobre tu día"
+          class="text-tarea"
+          formControlName="journalEntry"
+        ></textarea>
+      </form>
+      <button mat-raised-button class="button pointer" (click)="onSave()">
+        Guardar
       </button>
     </mat-card-content>
   </mat-card>

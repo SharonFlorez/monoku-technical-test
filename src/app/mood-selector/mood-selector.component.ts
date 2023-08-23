@@ -1,28 +1,32 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { OpenaiService } from 'src/services/openai.service';
-
-const MOODS = [
-  { emoji: '😄', label: 'Happy', value: 'happy' },
-  { emoji: '😊', label: 'Good', value: 'good' },
-  { emoji: '😐', label: 'Neutral', value: 'neutral' },
-  { emoji: '😞', label: 'Bad', value: 'bad' },
-  { emoji: '😢', label: 'Awful', value: 'awful' },
-];
+import { MOODS } from '../core/constant/mood-constant';
 
 @Component({
   selector: 'app-mood-selector',
   templateUrl: './mood-selector.component.html',
   styleUrls: ['./mood-selector.component.scss'],
 })
-export class MoodSelectorComponent {
+export class MoodSelectorComponent implements OnInit {
+  public moodForm: FormGroup = new FormGroup({});
   public moods = MOODS;
-  public selectedMood = 'neutral';
+  public selectedMood = '';
   public journalEntry = '';
   public sentimentResult = '';
 
-  constructor(private openaiService: OpenaiService, private router: Router) {}
+  constructor(
+    private openaiService: OpenaiService,
+    private _formBuilder: FormBuilder
+  ) {}
+
+  ngOnInit(): void {
+    this.moodForm = this._formBuilder.group({
+      mood: ['', [Validators.required]],
+      journalEntry: ['', [Validators.maxLength(20)]],
+    });
+  }
 
   public getEmoji(mood: string): string {
     switch (mood) {
@@ -41,10 +45,19 @@ export class MoodSelectorComponent {
     }
   }
 
-  public async submitForSentimentAnalysis(
-    selectedMood: string,
-    journalEntry: string
-  ): Promise<void> {
+  public getSelectedMood(selectedMood: string): void {
+    this.selectedMood = selectedMood;
+  }
+
+  public async onSave(): Promise<void> {
+    const selectedMood = this.moodForm.value.mood;
+    const journalEntry = this.moodForm.value.journalEntry;
+
+    if (this.moodForm.controls['mood'].invalid) {
+      Swal.fire('No has seleccionado tu estado de ánimo');
+      return;
+    }
+
     try {
       const sentiment = await this.openaiService.analyzeSentiment(journalEntry);
       this.sentimentResult = sentiment;
@@ -53,14 +66,14 @@ export class MoodSelectorComponent {
         title: `Hoy te sientes ${this.getEmoji(selectedMood)}`,
         text: `Análisis: ${this.sentimentResult}`,
         showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        showCancelButton: false,
+        confirmButtonText: 'Guardar',
+        denyButtonText: `Cancelar`,
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire('Saved!', '', 'success');
+          Swal.fire('Registro guardado!', '', 'success');
         } else if (result.isDenied) {
-          Swal.fire('Changes are not saved', '', 'info');
+          Swal.fire('No se guardo el registro', '', 'info');
         }
       });
     } catch (error) {

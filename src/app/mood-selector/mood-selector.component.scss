@@ -48,6 +48,17 @@
           }
         }
       }
+
+      .selected-mood {
+        .emoji {
+          font-size: 4rem;
+        }
+
+        .text-mood {
+          font-size: 1.4rem;
+          color: $blue-dark;
+        }
+      }
     }
 
     .text-tarea {
@@ -120,6 +131,16 @@
         }
       }
 
+      .radio-button .selected-mood {
+        .emoji {
+          font-size: 4.5rem;
+        }
+
+        .text-mood {
+          font-size: 1.6rem;
+        }
+      }
+
       .text-tarea {
         font-size: 1.4rem;
       }
@@ -167,6 +188,16 @@
           .text-mood {
             font-size: 1.8rem;
           }
+        }
+      }
+
+      .radio-button .selected-mood {
+        .emoji {
+          font-size: 5rem;
+        }
+
+        .text-mood {
+          font-size: 1.8rem;
         }
       }
 
