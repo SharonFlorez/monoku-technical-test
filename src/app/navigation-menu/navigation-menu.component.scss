@@ -28,6 +28,10 @@
     .active {
       color: $blue-dark;
     }
+
+    &:hover {
+      color: $white;
+    }
   }
 }
 

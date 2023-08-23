@@ -1,0 +1,46 @@
+@import "src/app/core/sass/index";
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 5rem;
+
+  .welcome-title,
+  .welcome-subtitle,
+  .login-btn {
+    color: $white;
+    text-align: center;
+  }
+
+  .welcome-title {
+    font-weight: bold;
+  }
+
+  .login-btn {
+    background-color: $blue-dark;
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+
+    &:hover {
+      background-color: $white;
+      color: $green;
+    }
+  }
+}
+
+@include desktop {
+  .login-wrapper {
+    .welcome-title {
+      font-size: 4rem;
+    }
+
+    .welcome-subtitle,
+    .login-btn {
+      font-size: 2rem;
+    }
+  }
+}

@@ -13,11 +13,14 @@ import {
 export class LayoutComponent implements OnInit {
   public isDesktop = true;
   public active = '';
+  public isLogin = false;
 
   constructor(private _router: Router) {
     this._router.events.pipe().subscribe((event: NavigationEvent) => {
       if (event instanceof NavigationEnd) {
         this._setSelectedOption(event.url);
+        this.isLogin =
+          event.url.includes('inicio') || event.url.includes('resumen');
       }
     });
   }

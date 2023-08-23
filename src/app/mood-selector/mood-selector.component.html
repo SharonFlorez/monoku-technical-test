@@ -8,7 +8,7 @@
           [value]="mood.value"
           class="radio-button"
         >
-          <section class="label-container">
+          <section class="label-container pointer">
             <p class="emoji">{{ mood.emoji }}</p>
             <p class="text-mood">{{ mood.label }}</p>
           </section>
@@ -22,7 +22,7 @@
       ></textarea>
       <button
         mat-raised-button
-        class="button"
+        class="button pointer"
         (click)="submitForSentimentAnalysis(selectedMood, journalEntry)"
       >
         Enviar
