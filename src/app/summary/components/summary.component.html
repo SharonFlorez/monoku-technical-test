@@ -1,4 +1,11 @@
-<div class="summary-container">
-  <app-calendar></app-calendar>
-  <app-trend-graph></app-trend-graph>
+<div *ngIf="loading; else summary" class="loading-container">
+  <app-loading></app-loading>
+  <app-loading class="second-loading"></app-loading>
+  <app-loading class="third-loading"></app-loading>
 </div>
+<ng-template #summary>
+  <div class="summary-container">
+    <app-calendar [moodEntries]="moodEntries"></app-calendar>
+    <app-trend-graph [moodCounts]="moodCounts"></app-trend-graph>
+  </div>
+</ng-template>

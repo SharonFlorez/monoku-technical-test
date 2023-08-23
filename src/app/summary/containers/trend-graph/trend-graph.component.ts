@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 
 @Component({
@@ -8,25 +7,22 @@ import { ChartConfiguration } from 'chart.js';
   styleUrls: ['./trend-graph.component.scss'],
 })
 export class TrendGraphComponent implements OnInit {
-  public barChartLegend = true;
-  public barChartPlugins = [];
-
-  public barChartData: ChartConfiguration<'bar'>['data'] = {
-    labels: ['😄', '😊', '😐', '😞', '😢'],
-    datasets: [
-      {
-        data: [65, 59, 80, 81, 56],
-        label: 'Moods trends',
-        backgroundColor: '#37acf5',
-      },
-    ],
-  };
-
+  @Input() public moodCounts: number[] = [];
+  public barChartConfig!: any;
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
   };
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.barChartConfig = {
+      chartData: [
+        {
+          data: this.moodCounts,
+          label: 'Moods trends',
+          backgroundColor: '#37acf5',
+        },
+      ],
+      chartLabels: ['😄', '😊', '😐', '😞', '😢'],
+    };
+  }
 }

@@ -3,10 +3,10 @@
   <div class="chart-container">
     <canvas
       baseChart
-      [data]="barChartData"
+      [datasets]="barChartConfig.chartData"
+      [labels]="barChartConfig.chartLabels"
       [options]="barChartOptions"
-      [plugins]="barChartPlugins"
-      [legend]="barChartLegend"
+      [legend]="false"
       [type]="'bar'"
     >
     </canvas>

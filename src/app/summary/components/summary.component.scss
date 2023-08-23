@@ -1,6 +1,36 @@
 @import "src/app/core/sass/index";
 
+.loading-container {
+  display: flex;
+  justify-content: center;
+
+  .second-loading,
+  .third-loading {
+    display: none;
+  }
+}
+
+@include tablet {
+  .loading-container {
+    gap: 2rem;
+
+    .second-loading {
+      display: block;
+    }
+  }
+}
+
 @include desktop {
+  .loading-container {
+    position: fixed;
+    top: 50vh;
+    left: 25vw;
+
+    .third-loading {
+      display: block;
+    }
+  }
+
   .summary-container {
     display: flex;
     align-items: center;

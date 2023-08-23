@@ -2,7 +2,6 @@
   <h1 class="title">Tu resgistro diario</h1>
   <full-calendar class="calendar-content" [options]="calendarOptions">
     <ng-template #eventContent let-arg>
-      <!-- <b>{{ arg.timeText }}</b> -->
       <p class="emoji">{{ arg.event.title }}</p>
     </ng-template>
   </full-calendar>
