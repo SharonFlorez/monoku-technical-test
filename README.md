@@ -1,27 +1,60 @@
-# MonokuTechnicalTest
+# Mood Tracking Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+This is a simple mood tracking application built using Angular that allows users to track their mood selections and view mood trends over time.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Prerequisites
 
-## Code scaffolding
+- Node.js (at least version 12)
+- npm (Node Package Manager)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation
 
-## Build
+1. Clone the repository: `git clone https://github.com/SharonFlorez/monoku-technical-test.git`
+2. Install dependencies: `npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Configuration
 
-## Running unit tests
+1. Create a Firebase project:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Go to the Firebase Console: https://console.firebase.google.com/
+- Create a new project or use an existing one.
+- Enable Firestore Database and Authentication sections.
+  -- Authentication with Google provider
 
-## Running end-to-end tests
+2. Configure Firebase in your app:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Open `src/environments/environment.ts` and replace the Firebase configuration placeholders with your actual Firebase configuration.
 
-## Further help
+3. Add API key:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Open `src/services/config.ts` and replace the API key placeholder with your actual API key.
+
+### Running the Application
+
+1. Start the development server: `ng serve` o `npm run start`
+
+2. Open your browser and navigate to `http://localhost:4200` to access the application.
+
+### Using the Application
+
+1. Login:
+
+- Login using the Google provided authentication method.
+
+2. Make Mood Selections:
+
+- Once logged in, you will be able to make mood selections from the main screen.
+
+3. View Calendar and Trend Chart:
+
+- Navigate to the "Summary" section to view a calendar with recorded mood entries and the trend of your mood selections over time.
+
+4. Logout:
+
+- If you are finished, you can log out of the application with the icon in the header.
+
+### Contributions
+
+- Contributions are welcome! Please fork the repository and submit a pull request.
